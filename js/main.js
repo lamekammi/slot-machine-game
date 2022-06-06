@@ -4,11 +4,11 @@ const items = {
 };
 
 /*----- app's state (variables) -----*/
-let winner, squares2, changeMessage;
+let winner, squares, changeMessage;
 
 /*----- cached element references -----*/
 const slotMach = document.getElementById('slot-machine');
-const squares = document.querySelectorAll('.square');
+const squaresEl = document.querySelectorAll('.square');
 const leverButt = document.getElementById('lever');
 const resetGameButt = document.getElementById('reset-game');
 const scoreboardEl = document.getElementById('score-board');
@@ -34,6 +34,7 @@ function spin() {
 
 }
 
+// do after MVP is done.
 function updateScore() {
 
 }
