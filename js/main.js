@@ -31,7 +31,7 @@ resetGameButt.addEventListener('click', resetGame);
 /*----- functions -----*/
 function leverFunc(clicked) {
     if (clicked) {
-        changeMessage.textContent = 'Spinning! Wait to see if you win~'
+        changeMessage.textContent = 'Spinning! Wait to see if you win~';
         //spin()
     }
 
@@ -39,9 +39,19 @@ function leverFunc(clicked) {
 }
 
 function resetGame(clicked2) {
-  if (clicked2)
-    return document.getElementById('message');
+    if (clicked2) {
+    changeMessage.textContent = 'Click the "Lever" button to start the game!';
+    }
 }
+
+function shuffle(item) {
+    let currIdx = item.length, randomIdx;
+    while (currIdx != 0) {
+        randomIdx = Math.floor(Math.random() * currIdx);
+        currIdx--;
+        [item[currIdx], item[randomIdx]] = [item[randomIdx], item[currIdx]];
+    } return item;
+    }
 
 function initGame() {
 
