@@ -29,15 +29,18 @@ leverButt.addEventListener('click', leverFunc);
 resetGameButt.addEventListener('click', resetGame);
 
 /*----- functions -----*/
-function leverFunc(leverClicked) {
-  
-    console.log('i am clicked')
+function leverFunc(clicked) {
+    if (clicked) {
+        changeMessage.textContent = 'Spinning! Wait to see if you win~'
+        //spin()
+    }
+
+    //console.log('i am clicked')
 }
 
-function resetGame() {
-    winner = null;
-    defualt = '⚫️';
-    console.log('i am also clicked');
+function resetGame(clicked2) {
+  if (clicked2)
+    return document.getElementById('message');
 }
 
 function initGame() {
@@ -45,7 +48,7 @@ function initGame() {
 }
 
 function spin() {
-    
+
 }
 
 // do after MVP is done.
