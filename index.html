@@ -11,7 +11,7 @@
 </head>
 <body>
     <h1>SLOT MACHINE GAME</h1>
-    <h2>Click the "Lever" button to start the game!</h2>
+    <h2 id="message">Click the "Lever" button to start the game!</h2>
     <p>If you get 3 in a row that counts as a win, <br />
        If you do not get 3 in a row it counts as a lose.</p>
     <br><br>
@@ -20,9 +20,15 @@
     </div>
     <br><br>
     <div id="slot-machine">
-        <div class="square">square 1</div>
-        <div class="square">square 2</div>
-        <div class="square">square 3</div>
+        <div class="square">
+            <div class="box">⚫️</div>
+        </div>
+        <div class="square">
+            <div class="box">⚫️</div>
+        </div>
+        <div class="square">
+            <div class="box">⚫️</div>
+        </div>
     </div>
     <div id="score-board">
         <h3>Wins: </h3><h3>Loses: </h3> 
