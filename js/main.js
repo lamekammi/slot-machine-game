@@ -54,11 +54,21 @@ function shuffle(item) {
     }
 
 function initGame() {
-
+    //const startEmoji = ['⚫'];
+    //startEmoji.push(...shuffle(items));
 }
 
-function spin() {
+async function spin() {
+    //initGame(parm);
+    //for (const value of items) {
+        //const duration = parseInt(boxesEl.style.transitionDuration);
+       //boxesEl.style.transform = "translateY(0)";
+        //await new Promise((resolve) => setTimeout(resolve, duration * 100));
+    //}
+}
 
+for (const value of items) {
+    console.log(value);
 }
 
 // do after MVP is done.
