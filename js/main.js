@@ -76,3 +76,9 @@ function updateScore() {
 
 }
 
+//
+//win logic:
+//use the && and/or || operators to run thru each boxesEl to check if
+//each of the items it lands on are the same item. if TRUE display a win Message
+
+//else return a LOSE message.
