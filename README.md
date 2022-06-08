@@ -45,6 +45,6 @@ In the future I would like to add more to the SMG. I am hoping after I learn mor
 
 Here is the list:
 
-    - Adding fun animations during the ``spin()`` function and the ``win()`` ``lose()`` functions.
-    - Adding sound effects to those functions above as well.
-    - Letting you pick what kind of slot machine, meaning you pick a theme that the array images will be to make it more fun and enjoyable for the user playing the game.
+- Adding fun animations during the ``spin()`` function and the ``win()`` ``lose()`` functions.
+- Adding sound effects to those functions above as well.
+- Letting you pick what kind of slot machine, meaning you pick a theme that the array images will be to make it more fun and enjoyable for the user playing the game.
