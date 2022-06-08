@@ -12,8 +12,7 @@ const items = [
 
 /*----- app's state (variables) -----*/
 let winner = null;
-let defualt = '⚫️';
-let squares = [null, null, null];
+let gameEnded = false;
 
 /*----- cached element references -----*/
 const slotMach = document.getElementById('slot-machine');
@@ -24,7 +23,9 @@ const leverButt = document.getElementById('lever');
 const resetGameButt = document.getElementById('reset-game');
 const scoreboardEl = document.getElementById('score-board');
 const changeMessage = document.getElementById('message');
-//const boxesEl = document.querySelectorAll('.box');
+const winEl = document.getElementById('win');
+const loseEl = document.getElementById('lose');
+
 //console.log(boxesEl.textContent);
 
 /*----- event listeners -----*/
@@ -34,6 +35,7 @@ resetGameButt.addEventListener('click', resetGame);
 /*----- functions -----*/
 function leverFunc(clicked) {
     if (clicked) {
+        leverButt.disabled = true
         changeMessage.textContent = 'Spinning! Wait to see if you win~';
         spin(squareEl1);
         spin(squareEl2);
@@ -57,31 +59,35 @@ function getRandomIndex() {
 }
 
 function spin(squareEl) {
-    squareEl.textContent = getRandomIndex();
-    setInterval(() => {
-        const currentIndex = squareEl.getAttribute('value')
-        console.log(currentIndex)
-        squareEl.textContent = currentIndex
-    }, 1000) 
-
-    
-    
+    let index = getRandomIndex()
+    squareEl.textContent = items[index];
+    const spinInterval = Math.floor(Math.random() * (700 - 300) + 300);
+    const interval = setInterval(() => {
+        index = index === items.length - 1 ? 0 : index + 1;
+        squareEl.textContent = items[index];
+    }, spinInterval); 
+    setTimeout(() => {
+        clearInterval(interval);
+        determineGameStatus();
+    }, 6000);   
 }
-// function shuffle(item) {
-//     let currIdx = item.length, randomIdx;
-//     while (currIdx != 0) {
-//         randomIdx = Math.floor(Math.random() * currIdx);
-//         currIdx--;
-//         [item[currIdx], item[randomIdx]] = [item[randomIdx], item[currIdx]];
-//     } 
-//     console.log(item)
-//     return item;
-//     }
 
+function determineGameStatus() {
+    if (gameEnded) return;
+    gameEnded = true;
+    leverButt.disabled = false;
+    [squareEl1.textContent, squareEl2.textContent, squareEl3.textContent]
+        .every(x => x === squareEl1.textContent) ? win() : lose()
+}
+ function win() {
+    changeMessage.textContent = "YOU ARE A WINNERWINNER CHICKEN DINNER";
+    gameEnded = false;
+}
 
-//for (const value of items) {
-    //console.log(value);
-//}
+function lose() {
+    changeMessage.textContent = "YOU ARE A LOSERLOSER CHICKEN NOT DINNER";
+    gameEnded = false;
+}
 
 // do after MVP is done.
 function updateScore() {
