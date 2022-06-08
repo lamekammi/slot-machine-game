@@ -15,13 +15,11 @@ let winner = null;
 let gameEnded = false;
 
 /*----- cached element references -----*/
-const slotMach = document.getElementById('slot-machine');
 const squareEl1 = document.getElementById('square');
 const squareEl2 = document.getElementById('square2');
 const squareEl3 = document.getElementById('square3');
 const leverButt = document.getElementById('lever');
 const resetGameButt = document.getElementById('reset-game');
-const scoreboardEl = document.getElementById('score-board');
 const changeMessage = document.getElementById('message');
 const winEl = document.getElementById('win');
 const loseEl = document.getElementById('lose');
