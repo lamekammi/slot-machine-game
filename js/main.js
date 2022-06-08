@@ -35,9 +35,9 @@ resetGameButt.addEventListener('click', resetGame);
 function leverFunc(clicked) {
     if (clicked) {
         changeMessage.textContent = 'Spinning! Wait to see if you win~';
-        squareEl1.textContent = getRandomIndex();
-        squareEl2.textContent = getRandomIndex();
-        squareEl3.textContent = getRandomIndex();
+        spin(squareEl1);
+        spin(squareEl2);
+        spin(squareEl3);
         
         //spin()
     }
@@ -56,6 +56,17 @@ function getRandomIndex() {
     return Math.floor(Math.random() * currIdx);
 }
 
+function spin(squareEl) {
+    squareEl.textContent = getRandomIndex();
+    setInterval(() => {
+        const currentIndex = squareEl.getAttribute('value')
+        console.log(currentIndex)
+        squareEl.textContent = currentIndex
+    }, 1000) 
+
+    
+    
+}
 // function shuffle(item) {
 //     let currIdx = item.length, randomIdx;
 //     while (currIdx != 0) {
@@ -67,19 +78,6 @@ function getRandomIndex() {
 //     return item;
 //     }
 
-function initGame() {
-    //const startEmoji = ['⚫'];
-    //startEmoji.push(...shuffle(items));
-}
-
-async function spin() {
-    //initGame(parm);
-    //for (const value of items) {
-        //const duration = parseInt(boxesEl.style.transitionDuration);
-       //boxesEl.style.transform = "translateY(0)";
-        //await new Promise((resolve) => setTimeout(resolve, duration * 100));
-    //}
-}
 
 //for (const value of items) {
     //console.log(value);
