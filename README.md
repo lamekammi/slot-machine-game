@@ -6,10 +6,10 @@ The Slot Machine Game ( SMG ) is a web browser game made with HTML, CSS, and Jav
 ### Fun Facts
 ***
 
-    - The first mechanical slot machine was invented in 1894 by Charles August Fey.
-    - Winning myths to slot machines are only myths.
-    - There is more slot machines in Japan than the United States.
-    - Taxes made slot machines popular because of increase in taxes places of business needed to find a     different way to generate more income.
+- The first mechanical slot machine was invented in 1894 by Charles August Fey.
+- Winning myths to slot machines are only myths.
+- There is more slot machines in Japan than the United States.
+- Taxes made slot machines popular because of increase in taxes places of business needed to find a     different way to generate more income.
 
 # Screenshots
 ***
@@ -23,10 +23,10 @@ Losing:
 # Technologies Used
 ***
 
-    - HTML
-    - CSS
-    - JavaScript
-    - Google Fonts
+- HTML
+- CSS
+- JavaScript
+ - Google Fonts
 
 # Getting Startd
 ***
