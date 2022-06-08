@@ -28,6 +28,7 @@ h2, p {
     height: 50px;
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
+    cursor: pointer;
 }
 
 #square, #square2, #square3 {
