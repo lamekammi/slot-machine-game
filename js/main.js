@@ -17,12 +17,15 @@ let squares = [null, null, null];
 
 /*----- cached element references -----*/
 const slotMach = document.getElementById('slot-machine');
-const squaresEl = document.querySelectorAll('.square');
+const squareEl1 = document.getElementById('square');
+const squareEl2 = document.getElementById('square2');
+const squareEl3 = document.getElementById('square3');
 const leverButt = document.getElementById('lever');
 const resetGameButt = document.getElementById('reset-game');
 const scoreboardEl = document.getElementById('score-board');
 const changeMessage = document.getElementById('message');
-const boxesEl = document.getElementById('box');
+//const boxesEl = document.querySelectorAll('.box');
+//console.log(boxesEl.textContent);
 
 /*----- event listeners -----*/
 leverButt.addEventListener('click', leverFunc);
@@ -32,6 +35,10 @@ resetGameButt.addEventListener('click', resetGame);
 function leverFunc(clicked) {
     if (clicked) {
         changeMessage.textContent = 'Spinning! Wait to see if you win~';
+        squareEl1.textContent = getRandomIndex();
+        squareEl2.textContent = getRandomIndex();
+        squareEl3.textContent = getRandomIndex();
+        
         //spin()
     }
 
@@ -40,18 +47,25 @@ function leverFunc(clicked) {
 
 function resetGame(clicked2) {
     if (clicked2) {
-    changeMessage.textContent = 'Click the "Lever" button to start the game!';
+        changeMessage.textContent = 'Click the "Lever" button to start the game!';
     }
 }
 
-function shuffle(item) {
-    let currIdx = item.length, randomIdx;
-    while (currIdx != 0) {
-        randomIdx = Math.floor(Math.random() * currIdx);
-        currIdx--;
-        [item[currIdx], item[randomIdx]] = [item[randomIdx], item[currIdx]];
-    } return item;
-    }
+function getRandomIndex() {
+    let currIdx = items.length
+    return Math.floor(Math.random() * currIdx);
+}
+
+// function shuffle(item) {
+//     let currIdx = item.length, randomIdx;
+//     while (currIdx != 0) {
+//         randomIdx = Math.floor(Math.random() * currIdx);
+//         currIdx--;
+//         [item[currIdx], item[randomIdx]] = [item[randomIdx], item[currIdx]];
+//     } 
+//     console.log(item)
+//     return item;
+//     }
 
 function initGame() {
     //const startEmoji = ['⚫'];
@@ -67,9 +81,9 @@ async function spin() {
     //}
 }
 
-for (const value of items) {
-    console.log(value);
-}
+//for (const value of items) {
+    //console.log(value);
+//}
 
 // do after MVP is done.
 function updateScore() {

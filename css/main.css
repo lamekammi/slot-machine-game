@@ -20,7 +20,7 @@ body {
     font-size: 20px;
 }
 
-.square {
+#square, #square2, #square3 {
     background: whitesmoke;
     width: 200px;
     height: 200px;
