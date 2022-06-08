@@ -26,8 +26,6 @@ const changeMessage = document.getElementById('message');
 const winEl = document.getElementById('win');
 const loseEl = document.getElementById('lose');
 
-//console.log(boxesEl.textContent);
-
 /*----- event listeners -----*/
 leverButt.addEventListener('click', leverFunc);
 resetGameButt.addEventListener('click', resetGame);
@@ -36,20 +34,19 @@ resetGameButt.addEventListener('click', resetGame);
 function leverFunc(clicked) {
     if (clicked) {
         leverButt.disabled = true
+        resetGameButt.disabled = true
         changeMessage.textContent = 'Spinning! Wait to see if you win~';
-        spin(squareEl1);
+        spin(squareEl1, true);
         spin(squareEl2);
         spin(squareEl3);
-        
-        //spin()
     }
-
-    //console.log('i am clicked')
 }
 
 function resetGame(clicked2) {
     if (clicked2) {
         changeMessage.textContent = 'Click the "Lever" button to start the game!';
+        winEl.textContent = 0;
+        loseEl.textContent = 0;
     }
 }
 
@@ -58,7 +55,7 @@ function getRandomIndex() {
     return Math.floor(Math.random() * currIdx);
 }
 
-function spin(squareEl) {
+function spin(squareEl, isFirst = false) {
     let index = getRandomIndex()
     squareEl.textContent = items[index];
     const spinInterval = Math.floor(Math.random() * (700 - 300) + 300);
@@ -68,7 +65,7 @@ function spin(squareEl) {
     }, spinInterval); 
     setTimeout(() => {
         clearInterval(interval);
-        determineGameStatus();
+        if (isFirst) determineGameStatus();
     }, 6000);   
 }
 
@@ -76,27 +73,18 @@ function determineGameStatus() {
     if (gameEnded) return;
     gameEnded = true;
     leverButt.disabled = false;
+    resetGameButt.disabled = false;
     [squareEl1.textContent, squareEl2.textContent, squareEl3.textContent]
         .every(x => x === squareEl1.textContent) ? win() : lose()
 }
  function win() {
     changeMessage.textContent = "YOU ARE A WINNERWINNER CHICKEN DINNER";
     gameEnded = false;
+    winEl.textContent = Number(winEl.textContent) + 1;
 }
 
 function lose() {
     changeMessage.textContent = "YOU ARE A LOSERLOSER CHICKEN NOT DINNER";
     gameEnded = false;
+    loseEl.textContent = Number(loseEl.textContent) + 1;
 }
-
-// do after MVP is done.
-function updateScore() {
-
-}
-
-//
-//win logic:
-//use the && and/or || operators to run thru each boxesEl to check if
-//each of the items it lands on are the same item. if TRUE display a win Message
-
-//else return a LOSE message.
