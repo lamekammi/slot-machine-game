@@ -11,7 +11,6 @@ const items = [
 ];
 
 /*----- app's state (variables) -----*/
-let winner = null;
 let gameEnded = false;
 
 /*----- cached element references -----*/
@@ -31,27 +30,30 @@ resetGameButt.addEventListener('click', resetGame);
 /*----- functions -----*/
 function leverFunc(clicked) {
     if (clicked) {
-        leverButt.disabled = true
-        resetGameButt.disabled = true
+        leverButt.disabled = true;
+        resetGameButt.disabled = true;
         changeMessage.textContent = 'Spinning! Wait to see if you win~';
         spin(squareEl1, true);
         spin(squareEl2);
         spin(squareEl3);
     }
-}
+};
 
 function resetGame(clicked2) {
     if (clicked2) {
         changeMessage.textContent = 'Click the "Lever" button to start the game!';
         winEl.textContent = 0;
         loseEl.textContent = 0;
+        squareEl1.textContent = '⚫️';
+        squareEl2.textContent = '⚫️';
+        squareEl3.textContent = '⚫️';
     }
-}
+};
 
 function getRandomIndex() {
-    let currIdx = items.length
+    let currIdx = items.length;
     return Math.floor(Math.random() * currIdx);
-}
+};
 
 function spin(squareEl, isFirst = false) {
     let index = getRandomIndex()
@@ -65,7 +67,7 @@ function spin(squareEl, isFirst = false) {
         clearInterval(interval);
         if (isFirst) determineGameStatus();
     }, 6000);   
-}
+};
 
 function determineGameStatus() {
     if (gameEnded) return;
@@ -73,16 +75,17 @@ function determineGameStatus() {
     leverButt.disabled = false;
     resetGameButt.disabled = false;
     [squareEl1.textContent, squareEl2.textContent, squareEl3.textContent]
-        .every(x => x === squareEl1.textContent) ? win() : lose()
-}
+        .every(x => x === squareEl1.textContent) ? win() : lose();
+};
+
  function win() {
     changeMessage.textContent = "YOU ARE A WINNERWINNER CHICKEN DINNER";
     gameEnded = false;
     winEl.textContent = Number(winEl.textContent) + 1;
-}
+};
 
 function lose() {
     changeMessage.textContent = "YOU ARE A LOSERLOSER CHICKEN NOT DINNER";
     gameEnded = false;
     loseEl.textContent = Number(loseEl.textContent) + 1;
-}
+};
