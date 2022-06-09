@@ -17,8 +17,9 @@ The Slot Machine Game ( SMG ) is a web browser game made with HTML, CSS, and Jav
 Screenshots from the SMG:
 
 Winning:
-
+![Winning Screen](https://i.imgur.com/84QTNjP.png)
 Losing:
+![Losing Screen](https://i.imgur.com/mOz88UF.png)
 
 # Technologies Used
 ***
